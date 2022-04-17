@@ -1,8 +1,8 @@
 package ru.netology.smart_home;
 
 public class Radio {
-    private int currentStatusStation;
-    private int currentStatusVolume;
+    public int currentStatusStation;
+    public int currentStatusVolume;
 
     public int getCurrentStatusStation() {
         return currentStatusStation;
@@ -12,14 +12,21 @@ public class Radio {
         this.currentStatusStation = currentStatusStation;
     }
 
-    public void next() {
+    public void next() { //станции вперед
         this.currentStatusStation = currentStatusStation + 1;
         if (currentStatusStation == 10) {
             this.currentStatusStation = 0;
         }
     }
 
-    public void stationIn(int stationIn) {
+    public void prev() { //станции назад
+        this.currentStatusStation = currentStatusStation - 1;
+        if (currentStatusStation == -1) {
+            this.currentStatusStation = 9;
+        }
+    }
+
+    public void stationIn(int stationIn) { //выбрать станцию
         if (stationIn < 0) {
             return;
         }
