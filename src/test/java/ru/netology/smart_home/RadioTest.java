@@ -8,6 +8,27 @@ class RadioTest {
 
 
     @Test
+    public void setCurrentStationInitialStation() {
+        Radio cond = new Radio();
+
+        int expected = 0;
+        cond.setCurrentStatusStation(13);
+
+        assertEquals(expected, cond.getCurrentStatusStation());
+    }
+
+    @Test
+    public void setCurrentStationOrderStation() {
+        int sumStation = 40;
+        Radio cond = new Radio(sumStation);
+
+        int expected = 13;
+        cond.setCurrentStatusStation(13);
+
+        assertEquals(expected, cond.getCurrentStatusStation());
+    }
+
+    @Test
     public void getCurrentStatusStation() {
         Radio cond = new Radio();
         cond.setCurrentStatusStation(5);
@@ -24,6 +45,17 @@ class RadioTest {
         cond.setCurrentStatusStation(4);
 
         int expected = 4;
+        int actual = cond.getCurrentStatusStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void setCurrentStatusStationReturn() {
+        Radio cond = new Radio();
+        cond.setCurrentStatusStation(-1);
+
+        int expected = 0;
         int actual = cond.getCurrentStatusStation();
 
         assertEquals(expected, actual);
@@ -150,7 +182,19 @@ class RadioTest {
         cond.setCurrentStatusVolume(10);
         cond.volumeUp();
 
-        int expected = 10;
+        int expected = 11;
+        int actual = cond.getCurrentStatusVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void volumeUpMinVolume() {
+        Radio cond = new Radio();
+        cond.setCurrentStatusVolume(101);
+        cond.volumeUp();
+
+        int expected = 0;
         int actual = cond.getCurrentStatusVolume();
 
         assertEquals(expected, actual);
@@ -174,7 +218,7 @@ class RadioTest {
         cond.setCurrentStatusVolume(0);
         cond.volumeDown();
 
-        int expected = 0;
+        int expected = 100;
         int actual = cond.getCurrentStatusVolume();
 
         assertEquals(expected, actual);
