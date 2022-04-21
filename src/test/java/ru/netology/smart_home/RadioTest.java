@@ -10,7 +10,7 @@ class RadioTest {
     @Test
     public void getCurrentStatusStation() {
         Radio cond = new Radio();
-        cond.currentStatusStation = 5;
+        cond.setCurrentStatusStation(5);
 
         int expected = 5;
         int actual = cond.getCurrentStatusStation();
@@ -113,7 +113,7 @@ class RadioTest {
     @Test
     public void getCurrentStatusVolume() {
         Radio cond = new Radio();
-        cond.currentStatusVolume = 6;
+        cond.setCurrentStatusVolume(6);
 
         int expected = 6;
         int actual = cond.getCurrentStatusVolume();

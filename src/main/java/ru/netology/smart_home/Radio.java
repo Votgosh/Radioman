@@ -1,8 +1,8 @@
 package ru.netology.smart_home;
 
 public class Radio {
-    public int currentStatusStation;
-    public int currentStatusVolume;
+    private int currentStatusStation;
+    private int currentStatusVolume;
 
     public int getCurrentStatusStation() {
         return currentStatusStation;
